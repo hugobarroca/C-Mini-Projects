@@ -29,13 +29,41 @@ int* sort(int* unsortedArray, int size){
 	}
 }
 
-int main(){
-	int array[] = {4, 2, 43, 54, 2, 43, 65, 7};
-	int size = sizeof(array) / sizeof(array[0]);
-	printf("The current array is of size %d!\n", size);
-	printArray(array, size);
-	sort(array, size);
-	printArray(array, size);
+
+int* getIntArray(int arraySize, char *initialArray[]){
+	int* numbersArray = malloc (sizeof (int) * arraySize);
+	char *endPtr;
+
+
+	for(int i = 1; i < arraySize; i++){
+		numbersArray[i-1] = strtol(initialArray[i], &endPtr, 10);
+	}
+
+	return numbersArray;
+}
+
+int main(int argc, char *argv[]){
+	char *endPtr;
+	int number;
+	int* arguments;
+
+
+	printf("Argument 1: %s\n", argv[1]);
+
+
+	arguments = getIntArray(argc, argv);
+
+	printArray(arguments, argc - 1);
+	printf("Converted argument 1: %d\n", number);
 	return 0;
+
+	//strtol(argv[1], **endptr, 10);
+	//int *array = argv[1];
+	//int size = argc - 1;
+	//printf("The current array is of size %d!\n", size);
+	//printArray(array, size);
+	//sort(array, size);
+	//printArray(array, size);
+	//return 0;
 }
 
