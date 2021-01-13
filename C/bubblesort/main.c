@@ -43,27 +43,17 @@ int* getIntArray(int arraySize, char *initialArray[]){
 }
 
 int main(int argc, char *argv[]){
-	char *endPtr;
-	int number;
 	int* arguments;
-
-
-	printf("Argument 1: %s\n", argv[1]);
-
+	int size;
 
 	arguments = getIntArray(argc, argv);
-
-	printArray(arguments, argc - 1);
-	printf("Converted argument 1: %d\n", number);
+	size = argc - 1;
+	printf("The current array is of size %d!\n", size);
+	printf("The current array is: ");
+	printArray(arguments, size);
+	sort(arguments, size);
+	printf("Soring completed! End result: ");
+	printArray(arguments, size);
 	return 0;
-
-	//strtol(argv[1], **endptr, 10);
-	//int *array = argv[1];
-	//int size = argc - 1;
-	//printf("The current array is of size %d!\n", size);
-	//printArray(array, size);
-	//sort(array, size);
-	//printArray(array, size);
-	//return 0;
 }
 
