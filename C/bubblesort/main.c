@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "usefulprints.h"
+#include "extended-prints.h"
 
 int* sort(int* unsortedArray, int size){
 	printf("Starting to sort array!\n");
@@ -45,9 +45,15 @@ int* getIntArray(int arraySize, char *initialArray[]){
 int main(int argc, char *argv[]){
 	int* arguments;
 	int size;
-
+	
 	arguments = getIntArray(argc, argv);
 	size = argc - 1;
+
+	if(size == 0){
+		printf("No arguments! Exiting program!\n");
+		return 0;
+	}
+
 	printf("The current array is of size %d!\n", size);
 	printf("The current array is: ");
 	printArray(arguments, size);
